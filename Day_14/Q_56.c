@@ -18,15 +18,25 @@ int main() {
     }
 
     // Checking for duplicates in the array
+    printf("Duplicates in the array are: \n");
     for(int i = 0; i < n; i++) {
+
+        for(int k = 0; k < i; k++) {
+            if(arr[i] == arr[k]) {
+                cnt--;
+                break;
+            }
+        }
+
         for(int j = i + 1; j < n; j++) {
             if(arr[i] == arr[j]) {
                 cnt++;
+                break;
             }
         }
 
         if (cnt > 0) {
-            printf("%d", arr[i]);
+            printf("%d\n", arr[i]);
         }
 
         cnt = 0;
