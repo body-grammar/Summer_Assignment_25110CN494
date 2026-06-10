@@ -1,11 +1,10 @@
 #include <stdio.h>
 
 int main() {
-    // Write a program to find duplicates in an array
+    // Write a program to reverse an array
 
     // Declaration of variables
-    int arr[100], n;
-    int cnt = 0;
+    int arr[100], n, rev[100];
 
     // Inputting the number of elements in the array from the user
     printf("Enter the number of elements in the array: ");
@@ -17,19 +16,15 @@ int main() {
         scanf("%d", &arr[i]);
     }
 
-    // Checking for duplicates in the array
+    // Reversing the array
     for(int i = 0; i < n; i++) {
-        for(int j = i + 1; j < n; j++) {
-            if(arr[i] == arr[j]) {
-                cnt++;
-            }
-        }
+        rev[n-1-i] = arr[i];
+    }
 
-        if (cnt > 0) {
-            printf("%d", arr[i]);
-        }
-
-        cnt = 0;
+    // Printing the reversed array
+    printf("Reverse of the array: \n");
+    for(int i = 0; i < n; i++) {
+        printf("%d\n", rev[i]);
     }
 
     return 0;
