@@ -21,6 +21,7 @@ int main() {
     printf("Duplicates in the array are: \n");
     for(int i = 0; i < n; i++) {
 
+        // Checking for the duplicates before the required index
         for(int k = 0; k < i; k++) {
             if(arr[i] == arr[k]) {
                 cnt--;
@@ -28,6 +29,7 @@ int main() {
             }
         }
 
+        // Checking for the duplicates after the required index
         for(int j = i + 1; j < n; j++) {
             if(arr[i] == arr[j]) {
                 cnt++;
