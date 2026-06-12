@@ -4,7 +4,7 @@ int main() {
     // Write a program to move zeroes to the end
 
     // Declaration of variables
-    int arr[100], n, temp = 0, cpy[100];
+    int arr[100], n, temp;
 
     // Inputting the number of elements in the array from the user
     printf("Enter the number of elements in the array: ");
@@ -16,24 +16,22 @@ int main() {
         scanf("%d", &arr[i]);
     }
 
-    // Storing non-zero values in the array first in the other array
-    for(int i = 0; i < n; i++) {
-        if(arr[i] != 0) {
-            cpy[temp] = arr[i];
-            temp++;
+    // Shifting the zeroes at the end
+    for(int i = 0; i < n-1; i++) {
+        for(int j = 0; j < n-1; j++) {
+            if(arr[j] == 0) {
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
         }
     }
-
-    // Storing zero values at the end of the array
-    while(temp < n) {
-        cpy[temp] = 0;
-        temp++;
-    }
+      
 
     // Printing the modified array
     printf("Modified array is: \n");
     for(int i = 0; i < n; i++) {
-        printf("%d\n", cpy[i]);
+        printf("%d\n", arr[i]);
     }
 
     return 0;
